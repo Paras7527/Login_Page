@@ -3,5 +3,6 @@ export const colors={
     primary:"#8678f7",
     secondary:"#f4cdbb",
     gray:"#ffac6e",
-    orange:"#ff9665"
+    orange:"#ff9665",
+    lightorange:"#ffedcd"
 }

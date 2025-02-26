@@ -4,7 +4,7 @@ import {Ionicons, SimpleLineIcons} from '@expo/vector-icons'
 import { colors } from '../utils/colors'
 import { useNavigation } from '@react-navigation/native'
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const navigation=useNavigation();
   const[secureEntry,setsecureEntry]=useState(true);
 
@@ -19,12 +19,10 @@ const LoginScreen = () => {
         size={25}/>
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={styles.headingText}>Hey,</Text>
-        <Text style={styles.headingText}>Welcome</Text>
-        <Text style={styles.headingText}>Back</Text>
+        <Text style={styles.headingText}>Let's,Get</Text>
+        <Text style={styles.headingText}>Started</Text>
       </View>
-      <ImageBackground source={require("../assets/image.png")} style={styles.background} 
-      imageStyle={{opacity:0.3}}/>
+
       <View style={styles.formContainer}>
         <View style={styles.InputContainer}>
           <Ionicons name='mail-outline'
@@ -36,8 +34,20 @@ const LoginScreen = () => {
           placeholderTextColor={colors.primary}
           keyboardType='email-address'/>
         </View>
+        <ImageBackground source={require("../assets/image.png")} style={styles.background} 
+      imageStyle={{opacity:0.3}}/>
+        <View style={styles.InputPhoneContainer}>
+          <Ionicons name='screen-smartphone'
+          color={colors.orange}
+          size={30}
+          />
+          <TextInput style={styles.TextInput}
+          placeholder='Enter Your Phone Number' 
+          placeholderTextColor={colors.primary}
+          keyboardType='number-pad'/>
+        </View>
       </View>
-
+      
       <View style={styles.formContainer}>
       <View style={styles.InputContainer}>
         <Ionicons name="lock-closed" color={colors.orange} size={30} />
@@ -47,16 +57,12 @@ const LoginScreen = () => {
           placeholderTextColor={colors.primary}
           secureTextEntry={secureEntry} 
         />
-
         <TouchableOpacity onPress={()=>{setsecureEntry((prev)=>!prev);}}>
           <SimpleLineIcons name={"eye"} size={20} color={colors.primary}/>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity>
-        <Text style={styles.ForgotPasswordText}>Forgot Password?</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.LoginButtonWrapper}>
-        <Text style={styles.LoginText}>Login</Text>
+        <Text style={styles.LoginText}>SignUp</Text>
       </TouchableOpacity>
       <Text style={styles.continueText}>or continue with</Text>
       <TouchableOpacity style={styles.googleButton}>
@@ -67,15 +73,17 @@ const LoginScreen = () => {
       </TouchableOpacity>
 
       <View style={styles.footerContainer}>
-      <Text style={styles.accountText}>Don't have an account?</Text>
-      <Text style={styles.signupText}>Sign up</Text>
+      <Text style={styles.accountText}>Already have an account?</Text>
+      <Text style={styles.signupText}>Login</Text>
       </View>
     </View>
+``
     </View>
+    
   )
 }
 
-export default LoginScreen
+export default SignUpScreen
 
 const styles = StyleSheet.create({
   container:{
@@ -175,6 +183,16 @@ const styles = StyleSheet.create({
     color:colors.primary,
     fontWeight:800,
     fontFamily:"sans-serif-bold",
+  },
+  InputPhoneContainer:{
+    borderWidth:1,
+    borderRadius:100,
+    borderColor:colors.primary,
+    paddingHorizontal:20,
+    flexDirection:"row",
+    alignItems:"center",
+    padding:10,
+    marginTop:19,
   },
   background: {
     flex: 1,

@@ -1,13 +1,19 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View,Image } from 'react-native'
 import React, { useState } from 'react'
 import {Ionicons, SimpleLineIcons} from '@expo/vector-icons'
 import { colors } from '../utils/colors'
+import { useNavigation } from '@react-navigation/native'
 
 const LoginScreen = () => {
+  const navigation=useNavigation();
   const[secureEntry,setsecureEntry]=useState(true);
+
+  const handleGoBack=()=>{
+    navigation.goBack();
+  }
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButtonWrapper}>
+      <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
         <Ionicons name='arrow-back-outline' 
         color={colors.orange}
         size={25}/>
@@ -51,6 +57,18 @@ const LoginScreen = () => {
       <TouchableOpacity style={styles.LoginButtonWrapper}>
         <Text style={styles.LoginText}>Login</Text>
       </TouchableOpacity>
+      <Text style={styles.continueText}>or continue with</Text>
+      <TouchableOpacity style={styles.googleButton}>
+      <Image 
+        source={require("../assets/Google.png")} style={styles.googleimage} 
+      />
+      <Text style={styles.GoogleText}>Google</Text>
+      </TouchableOpacity>
+
+      <View style={styles.footerContainer}>
+      <Text style={styles.accountText}>Don't have an account?</Text>
+      <Text style={styles.signupText}>Sign up</Text>
+      </View>
     </View>
     </View>
   )
@@ -115,5 +133,46 @@ const styles = StyleSheet.create({
     backgroundColor:colors.orange,
     borderRadius:100,
     marginTop:60,
+  },
+  continueText:{
+    textAlign:"center",
+    marginVertical:15,
+    fontSize:15,
+    fontFamily:"sans-serif-bold",
+    color:colors.primary
+  },
+  googleimage:{
+    height:20,
+    width:19,
+  },
+  googleButton:{
+    flexDirection:"row",
+    borderWidth:2,
+    borderColor:colors.primary,
+    borderRadius:100,
+    justifyContent:"center",
+    alignItems:"center",
+    padding:10,
+    gap:10
+  },
+  GoogleText:{
+    fontSize:20,
+    fontFamily:"sans-serif-bold",
+  },
+  footerContainer:{
+    flexDirection:"row",
+    justifyContent:"center",
+    alignItems:"center",
+    marginVertical:30,
+    gap:4
+  },
+  accountText:{
+    color:colors.primary,
+    fontFamily:"sans-serif-bold",
+  },
+  signupText:{
+    color:colors.primary,
+    fontWeight:800,
+    fontFamily:"sans-serif-bold",
   }
 })

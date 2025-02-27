@@ -23,8 +23,8 @@ const LoginScreen = () => {
         <Text style={styles.headingText}>Welcome</Text>
         <Text style={styles.headingText}>Back</Text>
       </View>
-      <ImageBackground source={require("../assets/image.png")} style={styles.background} 
-      imageStyle={{opacity:0.3}}/>
+      {/* <ImageBackground source={require("../assets/image.png")} style={styles.background} 
+      imageStyle={{opacity:0.3}}/> */}
       <View style={styles.formContainer}>
         <View style={styles.InputContainer}>
           <Ionicons name='mail-outline'

@@ -34,8 +34,8 @@ const SignUpScreen = () => {
           placeholderTextColor={colors.primary}
           keyboardType='email-address'/>
         </View>
-        <ImageBackground source={require("../assets/image.png")} style={styles.background} 
-      imageStyle={{opacity:0.3}}/>
+        {/* <ImageBackground source={require("../assets/image.png")} style={styles.background} 
+      imageStyle={{opacity:0.3}}/> */}
         <View style={styles.InputPhoneContainer}>
           <Ionicons name='screen-smartphone'
           color={colors.orange}
